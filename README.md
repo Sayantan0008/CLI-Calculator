@@ -1,2 +1,4 @@
 To run this calculator use 
-`` python calculator.py``
+```sh
+python calculator.py
+```
