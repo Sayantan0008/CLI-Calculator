@@ -11,22 +11,36 @@ def divide(a, b):
 
 def main(): 
     print("Simple Calculator")
-    print("Available operations: +, -, *, /")
-    num1 = float(input("Enter first number:"))
-    op = input("Enter operation (+, -, *, /): ")
-    num2 = float(input("Enter second number:"))
-    if op == '+':
-        result = add(num1, num2)
-    elif op == '-':
-        result = subtract(num1, num2)
-    elif op == '*':
-        result = multiply(num1, num2)
-    elif op == '/':
-        result = divide(num1, num2)
-    else:
-        result = "Invalid operation"
+    print("Type 'exit' to quit the calculator")
+    while True:
+        print("\nAvailable operations: +, -, *, /")
+        first_input = input("Enter first number (or 'exit' to quit): ")
         
-    print("Result:", result)
+        if first_input.lower() == 'exit':
+            print("Thank you for using the calculator!")
+            break
+            
+        try:
+            num1 = float(first_input)
+            op = input("Enter operation (+, -, *, /): ")
+            num2 = float(input("Enter second number: "))
+            
+            if op == '+':
+                result = add(num1, num2)
+            elif op == '-':
+                result = subtract(num1, num2)
+            elif op == '*':
+                result = multiply(num1, num2)
+            elif op == '/':
+                result = divide(num1, num2)
+            else:
+                result = "Invalid operation"
+                
+            print("Result:", result)
+        except ValueError as e:
+            print("Error:", str(e))
+        except Exception as e:
+            print("An error occurred:", str(e))
     
 if __name__ == "__main__":
     main()
